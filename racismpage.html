@@ -221,6 +221,39 @@ var idcomments_post_id;
 var idcomments_post_url;
 </script>
 <script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script>
+
+
+
+ <script type="text/javascript" src="src/tabletop.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() { init() };
+
+      var public_spreadsheet_url = ' https://docs.google.com/spreadsheets/d/1-G5No3VP74r4RHyvf7EXFWOdZb9pB6tpGeqBJ7AHth0/pubhtml?gid=0&single=true';
+
+      function init() {
+        Tabletop.init( { key: public_spreadsheet_url,
+                         callback: showInfo,
+                         simpleSheet: true } )
+      }
+
+      function showInfo(data, tabletop) {
+        //put data from spreadsheet into html!
+        //for each box, update title + pic
+        //alert(data[0].title);
+       
+        $("#b1_link").attr("href", data[0].link);
+        $("#b1_title").html(data[0].title);
+        $("#b1_pic").attr("src", data[0].pic);
+        $("#b2_link").attr("href", data[1].link);
+        $("#b2_title").html(data[1].title);
+        $("#b2_pic").attr("src", data[1].pic);
+        $("#b3_link").attr("href", data[2].link);
+        $("#b3_title").html(data[2].title);
+        $("#b3_pic").attr("src", data[2].pic);
+        //console.log(data);
+      }
+    </script> 
   
 
 </body>
